@@ -12,3 +12,5 @@ LazyData: true
 RoxygenNote: 7.3.2
 Imports: 
     sf
+URL: https://github.com/shubhamdutta26/indiamapdata
+BugReports: https://github.com/shubhamdutta26/indiamapdata/issues
