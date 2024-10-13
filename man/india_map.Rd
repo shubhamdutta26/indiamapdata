@@ -2,7 +2,7 @@
 % Please edit documentation in R/india_map.R
 \name{india_map}
 \alias{india_map}
-\title{Xxx}
+\title{Retrieve Indian mapping data}
 \usage{
 india_map(
   regions = c("states", "state", "districts", "district"),
@@ -11,15 +11,33 @@ india_map(
 )
 }
 \arguments{
-\item{regions}{xxx}
+\item{regions}{The region breakdown for the map, can be one of
+(\code{"states"}, \code{"state"}, \code{"districts"}, \code{"district"}).
+The default is \code{"states"}.}
 
-\item{include}{xxx}
+\item{include}{The regions to include in the resulting map. If \code{regions} is
+\code{"states"}/\code{"state"}, the value can be either a state name, abbreviation or code.
+If states are provided in the district map, only ditricts in the included states
+will be returned.}
 
-\item{exclude}{xxx}
+\item{exclude}{he regions to exclude in the resulting map. If \code{regions} is
+\code{"states"}/\code{"state"}, the value can be either a state name, abbreviation or code.
+The regions listed in the \code{include} parameter are applied first and the
+\code{exclude} regions are then removed from the resulting map. Any excluded regions
+not present in the included regions will be ignored.}
 }
 \value{
-xxx
+An `sf` data frame of indian map coordinates divided by the desired \code{regions}.
 }
 \description{
-Xxx
+Retrieve Indian mapping data
+}
+\examples{
+str(india_map())
+
+df <- india_map(regions = "districts")
+
+include_states <- india_map(include = c("WB", "NL", "AP"))
+
+exclude_states <- india_map(exclude = c("WB", "NL", "AP"))
 }

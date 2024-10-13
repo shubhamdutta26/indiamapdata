@@ -4,16 +4,16 @@
 \alias{centroid_labels}
 \title{Retrieve centroid labels}
 \usage{
-centroid_labels(regions = c("states", "districts"))
+centroid_labels(regions = c("states"))
 }
 \arguments{
 \item{regions}{The region breakdown for the map, can be one of
-(\code{"states"}, \code{"counties"}, as specified by the internal file names.
+(\code{"states"}, \code{"districts"}, as specified by the internal file names.
 The default is \code{"states"}.}
 }
 \value{
-An `sf` data frame of state or county centroid labels and positions
-  relative to the coordinates returned by the \code{us_map} function.
+An `sf` data frame of state or district centroid labels and positions
+  relative to the coordinates returned by the \code{india_map} function.
 }
 \description{
 Retrieve centroid labels
