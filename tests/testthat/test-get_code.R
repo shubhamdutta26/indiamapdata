@@ -7,7 +7,7 @@ test_that("state codes codes load correctly", {
   expect_identical(code, states_code)
   expect_identical(state_code, states_code)
 
-  expect_equal(length(code), 12)
+  expect_equal(length(code), 3)
   expect_equal(length(code[[1]]), 37)
 
   expect_equal(code[[1, "abbr"]], "AN")
@@ -25,7 +25,7 @@ test_that("district codes load correctly", {
 
   expect_identical(district_code, districts_code)
 
-  expect_equal(length(district_code), 12)
+  expect_equal(length(district_code), 5)
   expect_equal(length(district_code[[1]]), 755)
 
   expect_equal(district_code[[1, "dtname"]], "Nicobars")
@@ -33,8 +33,8 @@ test_that("district codes load correctly", {
   expect_equal(district_code[[1, "stname"]], "ANDAMAN & NICOBAR")
   expect_equal(district_code[[1, "dtcode11"]], "638")
 
-  expect_equal(district_code[[755, "dtname"]], "Kalimpong")
+  expect_equal(district_code[[755, "dtname"]], "Uttar Dinajpur")
   expect_equal(district_code[[755, "abbr"]], "WB")
   expect_equal(district_code[[755, "stname"]], "WEST BENGAL")
-  expect_equal(district_code[[755, "dtcode11"]], "775")
+  expect_equal(district_code[[755, "dtcode11"]], "330")
 })
