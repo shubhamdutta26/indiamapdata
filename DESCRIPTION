@@ -1,11 +1,16 @@
 Package: indiamapdata
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Mapping Data for 'indiamap' Package
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Authors@R: 
+    person("Shubham", "Dutta", , "shubhamdutta26@gmail.com", 
+    role = c("aut", "cre", "cph"),
+    comment = c(ORCID = "0000-0001-8484-0717"))
+Maintainer: Shubham Dutta <shubhamdutta26@gmail.com>
+Description: Provides a container for data used by the 'indiamap' package.
+    The data used by 'indiamap' has been extracted into this package so that the
+    file size of the 'indiamap' package can be reduced considerably. The data in 
+    this package will be updated when latest data is available.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -14,3 +19,6 @@ Imports:
     sf
 URL: https://github.com/shubhamdutta26/indiamapdata
 BugReports: https://github.com/shubhamdutta26/indiamapdata/issues
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
