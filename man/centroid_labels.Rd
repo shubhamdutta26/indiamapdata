@@ -4,7 +4,7 @@
 \alias{centroid_labels}
 \title{Retrieve centroid labels}
 \usage{
-centroid_labels(regions = c("states"))
+centroid_labels(regions = c("states", "districts"))
 }
 \arguments{
 \item{regions}{The region breakdown for the map, can be one of

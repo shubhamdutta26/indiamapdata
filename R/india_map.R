@@ -80,7 +80,7 @@ india_map <- function(
 #'
 #' @export
 centroid_labels <- function(
-    regions = c("states")
+    regions = c("states", "districts")
 ) {
 
   regions <- match.arg(regions)
