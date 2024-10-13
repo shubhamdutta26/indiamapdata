@@ -1,13 +1,29 @@
-#' Xxx
+#' Retrieve Indian mapping data
 #'
-#' @param regions xxx
-#' @param include xxx
-#' @param exclude xxx
+#' @param regions The region breakdown for the map, can be one of
+#'   (\code{"states"}, \code{"state"}, \code{"districts"}, \code{"district"}).
+#'   The default is \code{"states"}.
+#' @param include The regions to include in the resulting map. If \code{regions} is
+#'  \code{"states"}/\code{"state"}, the value can be either a state name, abbreviation or code.
+#'  If states are provided in the district map, only ditricts in the included states
+#'  will be returned.
+#' @param exclude he regions to exclude in the resulting map. If \code{regions} is
+#'  \code{"states"}/\code{"state"}, the value can be either a state name, abbreviation or code.
+#'  The regions listed in the \code{include} parameter are applied first and the
+#'  \code{exclude} regions are then removed from the resulting map. Any excluded regions
+#'  not present in the included regions will be ignored.
 #'
-#' @return xxx
+#' @return An `sf` data frame of indian map coordinates divided by the desired \code{regions}.
 #' @export
 #'
 #' @examples
+#' str(india_map())
+#'
+#' df <- india_map(regions = "districts")
+#'
+#' include_states <- india_map(include = c("WB", "NL", "AP"))
+#'
+#' exclude_states <- india_map(exclude = c("WB", "NL", "AP"))
 india_map <- function(
     regions = c("states", "state", "districts", "district"),
     include = c(),
@@ -23,13 +39,32 @@ india_map <- function(
                 package = "indiamapdata")
   )
 
-  if (length(include) > 0) {
-    df <- df[df$full %in% include | df$abbr %in% include %in% include, ]
+  if (regions == "states") {
+    if (length(include) > 0) {
+      df <- df[df$stname %in% include |
+                 df$abbr %in% include |
+                 df$stcode11 %in% include, ]
+    }
+
+    if (length(exclude) > 0) {
+      df <- df[!(df$stname %in% exclude |
+                   df$abbr %in% exclude |
+                   df$stcode11 %in% exclude), ]
+    }
+  } else if (regions == "districts") {
+    if (length(include) > 0) {
+      df <- df[df$stname %in% include |
+                 df$abbr %in% include |
+                 df$dtcode11 %in% include, ]
+    }
+
+    if (length(exclude) > 0) {
+      df <- df[!(df$stname %in% exclude |
+                   df$abbr %in% exclude |
+                   df$dtcode11 %in% exclude), ]
+    }
   }
 
-  if (length(exclude) > 0) {
-    df <- df[!(df$full %in% exclude | df$abbr %in% exclude  %in% exclude), ]
-  }
 
   df[order(df$abbr), ]
 }
@@ -37,15 +72,15 @@ india_map <- function(
 #' Retrieve centroid labels
 #'
 #' @param regions The region breakdown for the map, can be one of
-#'   (\code{"states"}, \code{"counties"}, as specified by the internal file names.
+#'   (\code{"states"}, \code{"districts"}, as specified by the internal file names.
 #'   The default is \code{"states"}.
 #'
-#' @return An `sf` data frame of state or county centroid labels and positions
-#'   relative to the coordinates returned by the \code{us_map} function.
+#' @return An `sf` data frame of state or district centroid labels and positions
+#'   relative to the coordinates returned by the \code{india_map} function.
 #'
 #' @export
 centroid_labels <- function(
-    regions = c("states", "districts")
+    regions = c("states")
 ) {
 
   regions <- match.arg(regions)
