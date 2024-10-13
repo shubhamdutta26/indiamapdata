@@ -15,11 +15,9 @@ frame without relying on indiamap package updates.
 ## Map data
 
 The geojson files are stored in the data-raw/geojson_files folder. These
-files were read using the `sf` package, joined with state_abbr excel
-files, and saved as gpkg files in the inst/extdata folder. Centroids for
-the state data were calculated using the `st_centroid` function. The
-district centroids could not be calculated due to an overlap in the
-data.
+files were read and appropriately modified using the `create_india_map`
+function and saved as gpkg files in the inst/extdata folder. The
+centroids were also calculated using the `compute_centroids` function.
 
 ## Installation
 
@@ -42,5 +40,6 @@ library(indiamapdata)
 
 ## Acknowledgments
 
-I would like to thank [datta07](https://github.com/datta07) for the
-geojson files.
+I would like to thank [pdil](https://github.com/pdil) since I have used
+his `usmap` package to write most of this package. I would like to thank
+[datta07](https://github.com/datta07) for the geojson files.
