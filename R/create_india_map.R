@@ -4,7 +4,7 @@
 #' `create_india_map()` creates the modified shapefiles used by the
 #' \link[indiamap]{indiamap} package.
 #'
-#' `ea_crs()` returns the "Lambert Azimuthal Equal Area" projection method
+#' `ea_crs()` returns the World Geodetic System 1984 projection method
 #' (CRS) used by this package and `indiamap`.
 #'
 #' `compute_centroids()` computes the modified centroids for each state or
@@ -46,7 +46,7 @@ create_india_map <- function(
   # import map file
   india <- sf::read_sf(input_file)
 
-  # ea: Lambert Azimuthal Equal Area
+  # ea: 4326
   india_ea <- sf::st_transform(india, ea_crs())
 
   # delete unused columns
@@ -106,7 +106,7 @@ create_india_map <- function(
 #' @rdname create_india_map
 #' @keywords internal
 ea_crs <- function() {
-  sf::st_crs(9311)  # Lambert Azimuthal Equal Area
+  sf::st_crs(4326)  # World Geodetic System 1984
 }
 
 #' @rdname create_india_map
