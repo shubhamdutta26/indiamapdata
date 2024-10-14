@@ -20,10 +20,9 @@ get_code11 <- function(
 
   map_data <- indiamapdata::india_map(regions)
   sf::st_geometry(map_data) <- NULL
-  if (regions %in% c("states", "state")) {
-    map_data <- dplyr::rename(map_data, code11 = "stcode11")
-  } else if (regions %in% c("districts", "district")) {
-    map_data$code11 <- paste0(map_data$stcode11, map_data$dtcode11)
+
+  if (regions %in% c("districts", "district")) {
+    map_data$code11 <- paste0(map_data$code11, map_data$dtcode11)
   }
   map_data
 }

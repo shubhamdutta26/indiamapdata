@@ -61,9 +61,9 @@ create_india_map <- function(
   # rename remaining columns
   new_cols <- c()
   if (type == "states") {
-    new_cols <- c(stcode11 = "STCODE11", geom = "geometry", stname = "STNAME")
+    new_cols <- c(code11 = "STCODE11", geom = "geometry", stname = "STNAME")
   } else if (type == "districts") {
-    new_cols <- c(geom = "geometry")
+    new_cols <- c(code11 = "stcode11", geom = "geometry")
   }
   india_ea <- dplyr::rename(india_ea, dplyr::all_of(new_cols))
 
@@ -71,10 +71,10 @@ create_india_map <- function(
   # join with abbr
   if (type == "states") {
     state_abbr <- readxl::read_excel("data-raw/state_abbr.xlsx")
-    india_ea <- dplyr::full_join(india_ea, state_abbr, by = "stcode11")
+    india_ea <- dplyr::full_join(india_ea, state_abbr, by = "code11")
   } else if (type == "districts") {
     state_abbr_for_dt <- readxl::read_excel("data-raw/state_abbr_for_district.xlsx")
-    india_ea <- dplyr::full_join(india_ea, state_abbr_for_dt, by = "stcode11")
+    india_ea <- dplyr::full_join(india_ea, state_abbr_for_dt, by = "code11")
   }
 
   # sort output
