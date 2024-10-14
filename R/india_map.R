@@ -43,25 +43,25 @@ india_map <- function(
     if (length(include) > 0) {
       df <- df[df$stname %in% include |
                  df$abbr %in% include |
-                 df$stcode11 %in% include, ]
+                   df$code11 %in% include, ]
     }
 
     if (length(exclude) > 0) {
       df <- df[!(df$stname %in% exclude |
                    df$abbr %in% exclude |
-                   df$stcode11 %in% exclude), ]
+                     df$code11 %in% exclude), ]
     }
   } else if (regions == "districts") {
     if (length(include) > 0) {
       df <- df[df$stname %in% include |
                  df$abbr %in% include |
-                 df$dtcode11 %in% include, ]
+                   df$code11 %in% include, ]
     }
 
     if (length(exclude) > 0) {
       df <- df[!(df$stname %in% exclude |
                    df$abbr %in% exclude |
-                   df$dtcode11 %in% exclude), ]
+                     df$code11 %in% exclude), ]
     }
   }
 
