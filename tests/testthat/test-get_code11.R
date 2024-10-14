@@ -12,11 +12,11 @@ test_that("state codes load correctly", {
 
   expect_equal(code[[1, "abbr"]], "AN")
   expect_equal(code[[1, "code11"]], "35")
-  expect_equal(code[[1, "stname"]], "ANDAMAN & NICOBAR")
+  expect_equal(code[[1, "stname"]], "Andaman & Nicobar")
 
   expect_equal(code[[37, "abbr"]], "WB")
   expect_equal(code[[37, "code11"]], "19")
-  expect_equal(code[[37, "stname"]], "WEST BENGAL")
+  expect_equal(code[[37, "stname"]], "West Bengal")
 })
 
 test_that("district codes load correctly", {
@@ -30,11 +30,11 @@ test_that("district codes load correctly", {
 
   expect_equal(district_code[[1, "dtname"]], "Nicobars")
   expect_equal(district_code[[1, "abbr"]], "AN")
-  expect_equal(district_code[[1, "stname"]], "ANDAMAN & NICOBAR")
+  expect_equal(district_code[[1, "stname"]], "Andaman & Nicobar")
   expect_equal(district_code[[1, "code11"]], "35638")
 
   expect_equal(district_code[[755, "dtname"]], "Uttar Dinajpur")
   expect_equal(district_code[[755, "abbr"]], "WB")
-  expect_equal(district_code[[755, "stname"]], "WEST BENGAL")
+  expect_equal(district_code[[755, "stname"]], "West Bengal")
   expect_equal(district_code[[755, "code11"]], "19330")
 })

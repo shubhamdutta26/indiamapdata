@@ -13,7 +13,7 @@ test_that("correct states are included", {
   include_abbr <- c("GJ", "WB", "NL")
   map_abbr <- india_map(regions = "states", include = include_abbr)
 
-  include_full <- c("GUJARAT", "WEST BENGAL", "NAGALAND")
+  include_full <- c("Gujarat", "West Bengal", "Nagaland")
   map_full <- india_map(regions = "states", include = include_full)
 
   include_code <- c(24, 19, 13)
@@ -30,7 +30,7 @@ test_that("correct states are excluded", {
   exclude_abbr <- c("GJ", "WB", "NL")
   map_abbr <- india_map(regions = "states", exclude = exclude_abbr)
 
-  exclude_full <- c("GUJARAT", "WEST BENGAL", "NAGALAND")
+  exclude_full <- c("Gujarat", "West Bengal", "Nagaland")
   map_full <- india_map(regions = "states", exclude = exclude_full)
 
   exclude_code <- c(24, 19, 13)
@@ -60,5 +60,5 @@ test_that("error occurs for invalid region", {
 
 test_that("centroid labels are loaded", {
   expect_equal(length(centroid_labels("states")[[1]]), 37)
-  #expect_equal(length(centroid_labels("districts")[[1]]), 672)
+  expect_equal(length(centroid_labels("districts")[[1]]), 754)
 })
