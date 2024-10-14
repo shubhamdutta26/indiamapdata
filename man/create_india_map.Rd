@@ -16,7 +16,7 @@ compute_centroids(polygons, iterations = 3, initial_width_step = 10)
 `create_india_map()` creates the modified shapefiles used by the
 \link[indiamap]{indiamap} package.
 
-`ea_crs()` returns the "Lambert Azimuthal Equal Area" projection method
+`ea_crs()` returns the World Geodetic System 1984 projection method
 (CRS) used by this package and `indiamap`.
 
 `compute_centroids()` computes the modified centroids for each state or
