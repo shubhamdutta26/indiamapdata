@@ -18,7 +18,8 @@ RoxygenNote: 7.3.2
 Imports: 
     dplyr,
     readxl,
-    sf
+    sf,
+    stringr
 URL: https://github.com/shubhamdutta26/indiamapdata
 BugReports: https://github.com/shubhamdutta26/indiamapdata/issues
 Suggests: 
