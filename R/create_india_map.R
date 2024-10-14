@@ -67,6 +67,7 @@ create_india_map <- function(
   }
   india_ea <- dplyr::rename(india_ea, dplyr::all_of(new_cols))
 
+
   # join with abbr
   if (type == "states") {
     state_abbr <- readxl::read_excel("data-raw/state_abbr.xlsx")
@@ -82,6 +83,8 @@ create_india_map <- function(
   } else if (type == "districts") {
     india_ea <- dplyr::arrange(india_ea, .data$abbr, .data$dtname)
   }
+
+  india_ea$stname <- stringr::str_to_title(india_ea$stname)
 
   # export modified shape file
   sf::st_write(india_ea, output_file, quiet = TRUE, append = FALSE)
