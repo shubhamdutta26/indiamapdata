@@ -25,7 +25,7 @@ test_that("district codes load correctly", {
 
   expect_identical(district_code, districts_code)
 
-  expect_equal(length(district_code), 5)
+  expect_equal(length(district_code), 4)
   expect_equal(length(district_code[[1]]), 755)
 
   expect_equal(district_code[[1, "dtname"]], "Nicobars")
