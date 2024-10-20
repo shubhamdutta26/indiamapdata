@@ -3,3 +3,5 @@
 export(centroid_labels)
 export(get_code11)
 export(india_map)
+importFrom(rlang,arg_match)
+importFrom(tidyr,unite)

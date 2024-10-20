@@ -19,7 +19,9 @@ Imports:
     dplyr,
     readxl,
     sf,
-    stringr
+    stringr,
+    rlang,
+    tidyr
 URL: https://github.com/shubhamdutta26/indiamapdata
 BugReports: https://github.com/shubhamdutta26/indiamapdata/issues
 Suggests: 
