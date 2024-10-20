@@ -23,8 +23,6 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/shubhamdutta26/indiamapdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/shubhamdutta26/indiamapdata/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/indiamapdata)](https://CRAN.R-project.org/package=indiamapdata)
-[![Codecov test
-coverage](https://codecov.io/gh/shubhamdutta26/indiamapdata/graph/badge.svg)](https://app.codecov.io/gh/shubhamdutta26/indiamapdata)
 
 <!-- badges: end -->
 
