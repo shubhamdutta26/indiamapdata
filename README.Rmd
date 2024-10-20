@@ -20,14 +20,9 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![R-CMD-check](%5Bhttps://github.com/shubhamdutta26/tidyplate/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/shubhamdutta26/tidyplate/actions/workflows/R-CMD-check.yaml)](https://github.com/shubhamdutta26/tidyplate/actions/workflows/R-CMD-check.yaml/badge.svg)](<https://github.com/shubhamdutta26/tidyplate/actions/workflows/R-CMD-check.yaml>))
-[![CRAN
-status](%5Bhttps://www.r-pkg.org/badges/version/tidyplate)](https://CRAN.R-project.org/package=tidyplate)](https://www.r-pkg.org/badges/version/tidyplate)](<https://CRAN.R-project.org/package=tidyplate>))
-[![](%5Bhttp://cranlogs.r-pkg.org/badges/last-month/tidyplate)](https://cran.r-project.org/package=tidyplate)](http://cranlogs.r-pkg.org/badges/last-month/tidyplate)](<https://cran.r-project.org/package=tidyplate>))
-[![](%5Bhttp://cranlogs.r-pkg.org/badges/grand-total/tidyplate)](https://cran.r-project.org/package=tidyplate)](http://cranlogs.r-pkg.org/badges/grand-total/tidyplate)](<https://cran.r-project.org/package=tidyplate>))
-[![Codecov test
-coverage](%5Bhttps://codecov.io/gh/shubhamdutta26/tidyplate/graph/badge.svg)](https://app.codecov.io/gh/shubhamdutta26/tidyplate)](https://codecov.io/gh/shubhamdutta26/tidyplate/graph/badge.svg)](<https://app.codecov.io/gh/shubhamdutta26/tidyplate>))
 [![R-CMD-check](https://github.com/shubhamdutta26/indiamapdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/shubhamdutta26/indiamapdata/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/indiamapdata)](https://CRAN.R-project.org/package=indiamapdata)
 [![Codecov test
 coverage](https://codecov.io/gh/shubhamdutta26/indiamapdata/graph/badge.svg)](https://app.codecov.io/gh/shubhamdutta26/indiamapdata)
 
