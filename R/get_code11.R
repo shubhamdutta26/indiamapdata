@@ -16,13 +16,9 @@
 get_code11 <- function(
     regions = c("states", "state", "districts", "district")
 ) {
-  regions <- match.arg(regions)
+  regions <- rlang::arg_match(regions)
 
   map_data <- indiamapdata::india_map(regions)
   sf::st_geometry(map_data) <- NULL
-
-  if (regions %in% c("districts", "district")) {
-    map_data$code11 <- paste0(map_data$code11, map_data$dtcode11)
-  }
   map_data
 }

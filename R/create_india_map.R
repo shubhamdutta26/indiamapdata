@@ -10,7 +10,7 @@
 #' `compute_centroids()` computes the modified centroids for each state or
 #' district polygon using a center-of-mass technique on the largest polygon in
 #' the region.
-#'
+#' @importFrom tidyr unite
 #' @note
 #' Using these functions externally is not recommended since they make certain
 #' undocumented assumptions that may not work with all inputs.
@@ -37,11 +37,13 @@ create_india_map <- function(
 ) {
   # check for dplyr
   if (!requireNamespace("dplyr", quietly = TRUE)) {
-    stop("`dplyr` must be installed to use `create_india_map()`.
-         Use: install.packages(\"dplyr\") and try again.")
+    rlang::abort(
+      c("`dplyr` must be installed to use `create_india_map()`.",
+        "i" = "Use: install.packages(\"dplyr\") and try again.")
+    )
   }
 
-  type <- match.arg(type)
+  type <- rlang::arg_match(type)
 
   # import map file
   india <- sf::read_sf(input_file)
@@ -75,6 +77,8 @@ create_india_map <- function(
   } else if (type == "districts") {
     state_abbr_for_dt <- readxl::read_excel("data-raw/state_abbr_for_district.xlsx")
     india_ea <- dplyr::full_join(india_ea, state_abbr_for_dt, by = "code11")
+    # No NAs should be in columns code11 and dtcode11
+    india_ea <- tidyr::unite(india_ea, code11, dtcode11, col = "code11", sep = "")
   }
 
   # sort output
@@ -85,6 +89,8 @@ create_india_map <- function(
   }
 
   india_ea$stname <- stringr::str_to_title(india_ea$stname)
+
+
 
   # export modified shape file
   sf::st_write(india_ea, output_file, quiet = TRUE, append = FALSE)
@@ -116,11 +122,11 @@ ea_crs <- function() {
 #' @keywords internal
 compute_centroids <- function(polygons, iterations = 3, initial_width_step = 10) {
   if (iterations < 1) {
-    stop("`iterations` must be greater than or equal to 1.")
+    rlang::abort("`iterations` must be greater than or equal to 1.")
   }
 
   if (initial_width_step < 1) {
-    stop("`initial_width_step` must be greater than or equal to 1.")
+    rlang::abort("`initial_width_step` must be greater than or equal to 1.")
   }
 
   new_polygons <- sf::st_as_sf(polygons)

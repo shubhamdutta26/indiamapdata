@@ -14,6 +14,7 @@
 #'  not present in the included regions will be ignored.
 #'
 #' @return An `sf` data frame of indian map coordinates divided by the desired \code{regions}.
+#' @importFrom rlang arg_match
 #' @export
 #'
 #' @examples
@@ -29,7 +30,7 @@ india_map <- function(
     include = c(),
     exclude = c()
 ) {
-  regions <- match.arg(regions)
+  regions <- rlang::arg_match(regions)
 
   if (regions == "state") regions <- "states"
   else if (regions == "district") regions <- "districts"
@@ -55,13 +56,13 @@ india_map <- function(
     if (length(include) > 0) {
       df <- df[df$stname %in% include |
                  df$abbr %in% include |
-                   df$dtcode11 %in% include, ]
+                   df$code11 %in% include, ]
     }
 
     if (length(exclude) > 0) {
       df <- df[!(df$stname %in% exclude |
                    df$abbr %in% exclude |
-                     df$dtcode11 %in% exclude), ]
+                     df$code11 %in% exclude), ]
     }
   }
 
@@ -83,7 +84,7 @@ centroid_labels <- function(
     regions = c("states", "districts")
 ) {
 
-  regions <- match.arg(regions)
+  regions <- rlang::arg_match(regions)
 
   sf::read_sf(
     system.file("extdata", paste0("india_", regions, "_centroids.gpkg"),
