@@ -4,6 +4,18 @@
 # indiamapdata
 
 <!-- badges: start -->
+
+[![R-CMD-check](%5Bhttps://github.com/shubhamdutta26/tidyplate/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/shubhamdutta26/tidyplate/actions/workflows/R-CMD-check.yaml)\](<https://github.com/shubhamdutta26/tidyplate/actions/workflows/R-CMD-check.yaml/badge.svg>)\](<https://github.com/shubhamdutta26/tidyplate/actions/workflows/R-CMD-check.yaml>))
+[![CRAN
+status](%5Bhttps://www.r-pkg.org/badges/version/tidyplate)](https://CRAN.R-project.org/package=tidyplate)\](<https://www.r-pkg.org/badges/version/tidyplate>)\](<https://CRAN.R-project.org/package=tidyplate>))
+[![](%5Bhttp://cranlogs.r-pkg.org/badges/last-month/tidyplate)](https://cran.r-project.org/package=tidyplate)\](<http://cranlogs.r-pkg.org/badges/last-month/tidyplate>)\](<https://cran.r-project.org/package=tidyplate>))
+[![](%5Bhttp://cranlogs.r-pkg.org/badges/grand-total/tidyplate)](https://cran.r-project.org/package=tidyplate)\](<http://cranlogs.r-pkg.org/badges/grand-total/tidyplate>)\](<https://cran.r-project.org/package=tidyplate>))
+[![Codecov test
+coverage](%5Bhttps://codecov.io/gh/shubhamdutta26/tidyplate/graph/badge.svg)](https://app.codecov.io/gh/shubhamdutta26/tidyplate)\](<https://codecov.io/gh/shubhamdutta26/tidyplate/graph/badge.svg>)\](<https://app.codecov.io/gh/shubhamdutta26/tidyplate>))
+[![R-CMD-check](https://github.com/shubhamdutta26/indiamapdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/shubhamdutta26/indiamapdata/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/shubhamdutta26/indiamapdata/graph/badge.svg)](https://app.codecov.io/gh/shubhamdutta26/indiamapdata)
+
 <!-- badges: end -->
 
 The goal of indiamapdata is to serve as a container package for the maps
@@ -15,9 +27,13 @@ frame without relying on indiamap package updates.
 ## Map data
 
 The geojson files are stored in the data-raw/geojson_files folder. These
-files were read and appropriately modified using the `create_india_map`
-function and saved as gpkg files in the inst/extdata folder. The
-centroids were also calculated using the `compute_centroids` function.
+files were read and appropriately modified using the
+`create_india_map()` function and saved as gpkg files in the
+inst/extdata folder. The centroids were also calculated using the
+`compute_centroids()` function.
+
+**Note:** The 3-digit code11 codes for districts were merged with the
+2-digit state codes to create a 5-digit code for the districts.
 
 ## Installation
 
@@ -41,5 +57,5 @@ library(indiamapdata)
 ## Acknowledgments
 
 I would like to thank [pdil](https://github.com/pdil) since I have used
-his `usmap` package to write most of this package. I would like to thank
-[datta07](https://github.com/datta07) for the geojson files.
+his `usmap` package to write most of this package. I would also like to
+thank [datta07](https://github.com/datta07) for the geojson files.
